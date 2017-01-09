@@ -40,8 +40,9 @@ class SpaaaceGameEngine extends GameEngine {
         let playerShip;
 
         for (let objId in this.world.objects) {
-            if (this.world.objects[objId].playerId == playerId) {
-                playerShip = this.world.objects[objId];
+            let o = this.world.objects[objId];
+            if (o.playerId == playerId && o.class == Ship) {
+                playerShip = o;
                 break;
             }
         }

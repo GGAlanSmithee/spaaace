@@ -19,8 +19,6 @@ class SpaaaceRenderer extends Renderer {
         };
     }
 
-    init() {}
-
     draw() {
         super.draw();
         for (let objId of Object.keys(this.sprites)) {
@@ -28,8 +26,6 @@ class SpaaaceRenderer extends Renderer {
                 this.sprites[objId].x = this.gameEngine.world.objects[objId].x;
                 this.sprites[objId].y = this.gameEngine.world.objects[objId].y;
                 this.sprites[objId].angle = this.gameEngine.world.objects[objId].angle;
-            } else {
-                this.removeObject(this.sprites[objId]);
             }
         }
     }
@@ -64,7 +60,7 @@ class SpaaaceRenderer extends Renderer {
     }
 
     removeObject(obj) {
-        obj.destroy();
+        this.sprites[obj.id].destroy();
         delete this.sprites[obj.id];
     }
 
